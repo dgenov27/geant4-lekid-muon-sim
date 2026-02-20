@@ -1,0 +1,45 @@
+
+# ---- CMake / Build Artifacts ----
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+Testing/
+CTestTestfile.cmake
+install_manifest.txt
+*.cmake
+
+# ---- Visual Studio / Windows ----
+.vs/
+*.sln
+*.vcxproj*
+*.filters
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+x64/
+Debug/
+Release/
+out/
+
+# ---- Compiled Binaries ----
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+*.pdb
+*.ilk
+
+# ---- Simulation Output Data ----
+# Prevent accidental upload of large datasets
+*.root
+*.csv
+*.dat
+*.log
+*.out
