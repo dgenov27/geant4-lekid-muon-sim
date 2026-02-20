@@ -43,3 +43,6 @@ out/
 *.dat
 *.log
 *.out
+
+!data/
+!data/deflection_results.csv
