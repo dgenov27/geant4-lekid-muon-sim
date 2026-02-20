@@ -4,27 +4,68 @@ Geant4 Monte Carlo simulation of cosmic-ray muons traversing a three-layer LEKID
 
 The tagged release `v1.0.0` corresponds to the version used in the associated manuscript.
 
+---
+
 ## Scientific Overview
 
-This simulation models cosmic-ray muon tracks incident on a multilayer LEKID stack, energy deposition within superconducting thin-film layers, geometric extrapolation between detector layers, multiple scattering uncertainty using the Highland approximation, and pixel-level hit registration with spatial deflection metrics.
+This simulation models:
 
-Primary outputs quantify track deflection between layers, L2 position prediction residuals, spatial uncertainty estimates, and per-event pixel localization. The geometry is fully configurable and supports parameter sweeps for detector thicknesses, gap spacing, and chip dimensions.
+- Cosmic-ray muon tracks incident on a multilayer LEKID stack  
+- Energy deposition within superconducting thin-film layers  
+- Geometric extrapolation between detector layers  
+- Multiple scattering uncertainty using the Highland approximation  
+- Pixel-level hit registration and spatial deflection metrics  
+
+Primary outputs quantify:
+
+- Track deflection between layers  
+- L2 position prediction residuals  
+- Spatial uncertainty estimates  
+- Per-event pixel localization  
+
+The geometry is fully configurable and supports parameter sweeps for detector thicknesses, gap spacing, and chip dimensions.
+
+---
 
 ## Repository Structure
 
 ```
-include/              Detector geometry and action classes
-src/                  Geant4 implementation files
-CMakeLists.txt        Build configuration
-README.md             Project documentation
+include/                         Detector geometry and action classes
+src/                             Geant4 implementation files
+data/                            Simulation output datasets
+  └── deflection_results.csv     Full dataset used in manuscript analysis
+CMakeLists.txt                   Build configuration
+README.md                        Project documentation
 ```
+
+---
+
+## Included Dataset
+
+The file:
+
+`data/deflection_results.csv`
+
+contains the full simulation output used for the manuscript analysis.  
+Each row corresponds to a simulated muon event and includes:
+
+- Layer hit coordinates  
+- Pixel indices  
+- Extrapolated residuals  
+- Deflection metrics  
+
+This dataset allows readers to inspect the results directly without rebuilding and rerunning the simulation.
+
+
+---
 
 ## Requirements
 
 - Geant4 (tested with 11.x series)
 - CMake ≥ 3.16
 - C++17 compatible compiler
-- Windows (Visual Studio x64) or Linux/macOS
+
+---
 
 ## Build Instructions
 
@@ -53,6 +94,8 @@ README.md             Project documentation
    ./lekid_deflection_sim.exe
    ```
 
+---
+
 ### Linux / macOS
 
 ```bash
@@ -63,14 +106,18 @@ make -j
 ./lekid_deflection_sim
 ```
 
-## Output Files
+---
 
-The simulation generates:
+## Output Files (Generated at Runtime)
+
+When the simulation is executed, it produces:
 
 - `deflection_results.csv` — per-event layer positions, pixel indices, and straight-line residuals.
 - `l2_uncertainty.csv` — L2 straight-line prediction and multiple scattering uncertainty estimates.
 
-Output files are written to the runtime directory.
+These files are written to the runtime directory.
+
+---
 
 ## Simulation Configuration
 
@@ -106,9 +153,15 @@ Configurable parameters include:
 - Chip lateral dimension:
   - `chipXY`
 
+---
+
 ## Reproducibility
 
-The tagged release `v1.0.0` represents the exact implementation used for the manuscript results. 
+The tagged release `v1.0.0` represents the exact implementation and dataset used for the manuscript results.
+
+Tagged releases preserve archival versions for reproducibility.
+
+---
 
 ## License
 
